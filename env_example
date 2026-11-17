@@ -1,0 +1,27 @@
+# ============================================================
+# 阿里云访问密钥（用于调用通义听悟 API 进行语音转录）
+# 获取方式：https://ram.console.aliyun.com/manage/ak
+# ============================================================
+ALIBABA_CLOUD_ACCESS_KEY_ID=your_access_key_id
+ALIBABA_CLOUD_ACCESS_KEY_SECRET=your_access_key_secret
+
+# ============================================================
+# 通义听悟应用密钥（用于会议音频转文字）
+# 获取方式：https://tingwu.console.aliyun.com/
+# ============================================================
+TINGWU_APP_KEY=your_tingwu_app_key
+
+# ============================================================
+# 应用公网地址（用于生成分享链接、回调地址等）
+# 本地开发时使用 http://localhost:5173
+# ============================================================
+MEETILY_PUBLIC_BASE_URL=http://localhost:5173
+
+# ============================================================
+# LLM 大语言模型配置（用于会议内容分析、摘要生成等）
+# 支持的 Provider: qwen（通义千问）
+# 获取方式：https://dashscope.console.aliyun.com/
+# ============================================================
+LLM_API_KEY=your_llm_api_key
+LLM_PROVIDER=qwen
+LLM_MODEL=qwen-plus

@@ -1,0 +1,26 @@
+[project]
+name = "meetily-backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "aiosqlite>=0.22.1",
+    "aliyun-python-sdk-core>=2.16.0",
+    "anthropic>=0.86.0",
+    "fastapi[standard]>=0.135.2",
+    "httpx>=0.28.1",
+    "livekit-api>=1.1.0",
+    "langchain-anthropic>=0.3.0",
+    "langchain-openai>=0.3.0",
+    "langgraph>=0.4.0",
+    "openai>=2.29.0",
+    "pydantic>=2.12.5",
+    "uvicorn>=0.42.0",
+    "websockets>=16.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]

@@ -1,0 +1,30 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: meetily-meeting-backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      MEETILY_DB_PATH: /app/data/meeting-agent.db
+    volumes:
+      - meetily-meeting-data:/app/data
+    ports:
+      - '12067:5167'
+
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    container_name: meetily-meeting-web
+    restart: unless-stopped
+    ports:
+      - '12018:80'
+    depends_on:
+      - backend
+
+volumes:
+  meetily-meeting-data:
+    name: meetily-meeting-data

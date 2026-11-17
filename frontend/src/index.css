@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 140 8% 5%;
+    --muted: 145 20% 95%;
+    --muted-foreground: 145 5% 42%;
+    --border: 145 10% 88%;
+    --input: 145 10% 88%;
+    --primary: 152 55% 40%;
+    --primary-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 152 55% 40%;
+    --radius: 0.875rem;
+    --card: 0 0% 100%;
+    --card-foreground: 140 8% 5%;
+    --secondary: 152 80% 94%;
+    --secondary-foreground: 152 55% 35%;
+    --accent: 152 80% 94%;
+    --accent-foreground: 152 55% 35%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 140 8% 5%;
+    --sidebar-width: 260px;
+    --sidebar-bg: 145 20% 97%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    margin: 0;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Glass utility classes */
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl bg-white/40 border border-white/70 shadow-sm;
+  }
+
+  .glass-heavy {
+    @apply backdrop-blur-2xl bg-white/60 border border-white/80 shadow-md;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-lg bg-white/35 border border-white/60 shadow-sm;
+  }
+}
+
+/* App shell background with green gradient */
+.app-shell-bg {
+  background:
+    radial-gradient(circle at top right, hsla(152, 55%, 40%, 0.08), transparent 35%),
+    radial-gradient(circle at bottom left, hsla(152, 40%, 60%, 0.06), transparent 30%),
+    linear-gradient(180deg, hsl(145, 20%, 97%), hsl(0, 0%, 100%) 40%);
+}
+
+.app-sidebar-offset {
+  margin-left: 240px;
+}
+
+@media (max-width: 1023px) {
+  .app-sidebar-offset {
+    margin-left: 0;
+  }
+}
+
+/* LiveKit meeting runtime shell */
+.meeting-runtime-shell {
+  --lk-has-imported-styles: 1;
+  --lk-bg: hsl(222 47% 11%);
+  --lk-fg: hsl(210 40% 98%);
+  --lk-control-bg: hsla(222, 47%, 14%, 0.92);
+  --lk-control-fg: hsl(210 40% 98%);
+  --lk-control-active-bg: hsl(var(--primary));
+  --lk-control-active-fg: hsl(var(--primary-foreground));
+  --lk-border-color: hsla(215, 28%, 17%, 0.88);
+}
+
+.meeting-runtime-shell .lk-room-container {
+  height: 100%;
+}
+
+.meeting-runtime-shell .lk-video-conference {
+  height: 100%;
+}
+
+.meeting-runtime-shell .lk-grid-layout {
+  background: radial-gradient(circle at top, rgba(34, 197, 94, 0.16), rgba(2, 6, 23, 0.94) 68%);
+}
+
+.meeting-runtime-shell .lk-focus-layout,
+.meeting-runtime-shell .lk-participant-tile,
+.meeting-runtime-shell .lk-grid-layout-wrapper {
+  border-radius: 1.25rem;
+}
+
+.meeting-runtime-shell .lk-disconnect-button {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .meeting-detail-sidebar-shell {
+    min-width: 380px;
+  }
+
+  .meeting-detail-sidebar-scroll {
+    overflow: visible;
+  }
+
+  .meeting-detail-summary-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .meeting-detail-action-items-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    max-height: 40vh;
+  }
+
+  .meeting-action-items-panel {
+    min-height: 0;
+    height: 100%;
+  }
+
+  .meeting-action-items-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 0.25rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .meeting-detail-sidebar-shell {
+    min-width: 420px;
+  }
+}
+
+.summary-templates-scroll {
+  max-height: min(16rem, 40vh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 0.25rem;
+}
